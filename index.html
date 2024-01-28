@@ -635,7 +635,9 @@
             .carrr3{
                 width: 900px;
             }
-            
+            .cardocardo{
+            display: none;
+        }
 
         }
 
@@ -656,6 +658,7 @@
             .caca1 {
             margin-right: -100px;
         }
+        
        
 
 
@@ -815,9 +818,7 @@
             .bbbi{
                 font-size: 80%;
             }
-            .butono1{
-                display: none !important;
-            }
+            
 
             .carrr4 {
         flex-wrap: nowrap;
@@ -829,9 +830,7 @@
     .carrr4:active {
         cursor: grabbing;
     }
-    .butono{
-        display: none !important;
-    }
+    
     .mbmb{
         display: none !important;
     }
@@ -850,7 +849,7 @@
         padding-left: 20px;
     }
     .hedcov{
-        margin-top: 50px;
+        padding-top: 50px;
         margin-right: 20px;
         
     }
@@ -885,6 +884,9 @@
 
             .card2 {
                 max-width: 1000px;
+            }
+            .cardocardo1{
+                display: none;
             }
             
             
@@ -5961,10 +5963,67 @@
 
 
 
+                    <div class="card cardocardo1" style="margin-top: 34px;">
+                        <div class="card-body">
+                            <h4>Paris Hotels Information</h4>
+                    
+                            <div class="row" style="margin-left: 2px; font-size: 14px;">
+                                <div class="col-12" style="padding-top: 10px;">
+                                    <div class="row">
+                                        <div class="col-12" style="font-weight: 500; font-size: 16px;">Hotels in Paris</div>
+                                        <div class="col-12">2,545</div>
+                                    </div>
+                                </div>
+                                <div class="col-12" style="padding-top: 10px;">
+                                    <div class="row">
+                                        <div class="col-12" style="font-weight: 500; font-size: 16px;">Hotels Prices From</div>
+                                        <div class="col-12">$76</div>
+                                    </div>
+                                </div>
+                                <div class="col-12" style="padding-top: 10px;">
+                                    <div class="row">
+                                        <div class="col-12" style="font-weight: 500; font-size: 16px;">Hotels Reviews</div>
+                                        <div class="col-12">1,132,319</div>
+                                    </div>
+                                </div>
+                                <div class="col-12" style="padding-top: 10px;">
+                                    <div class="row">
+                                        <div class="col-12" style="font-weight: 500; font-size: 16px;">Hotels Photos</div>
+                                        <div class="col-12">578,687</div>
+                                    </div>
+                                </div>
+                                <div class="col-12" style="padding-top: 10px;">
+                                    <div class="row">
+                                        <div class="col-12" style="font-weight: 500; font-size: 16px;">Travel high season</div>
+                                        <div class="col-12">Jun - Aug</div>
+                                    </div>
+                                </div>
+                                <div class="col-12" style="padding-top: 10px;">
+                                    <div class="row">
+                                        <div class="col-12" style="font-weight: 500; font-size: 16px;">Travel low season</div>
+                                        <div class="col-12">Dec - Feb</div>
+                                    </div>
+                                </div>
+                                <div class="col-12" style="padding-top: 10px;">
+                                    <div class="row">
+                                        <div class="col-12" style="font-weight: 500; font-size: 16px;">High season avg price</div>
+                                        <div class="col-12">$374</div>
+                                    </div>
+                                </div>
+                                <div class="col-12" style="padding-top: 10px;">
+                                    <div class="row">
+                                        <div class="col-12" style="font-weight: 500; font-size: 16px;">Low season avg price</div>
+                                        <div class="col-12">$326</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
 
 
-
-                    <div class="card" style="margin-top: 34px;">
+                    <div class="card cardocardo" style="margin-top: 34px;">
                         <div class="card-body">
                             <h4>Paris Hotels Information</h4>
 
@@ -7619,16 +7678,6 @@ window.onload = function () {
     const scrollableElement1 = document.querySelector('.carrr3');
     if (scrollableElement1) {
         handleHorizontalScrolling(scrollableElement1,'scrollBtnLeft3', 'scrollBtnRight3');
-    }
-
-    const scrollableElement2 = document.querySelector('.carrr1');
-    if (scrollableElement2) {
-        handleHorizontalScrolling(scrollableElement2,'scrollBtnLeft2', 'scrollBtnRight2');
-    }
-
-    const scrollableElement3 = document.querySelector('.carrr2');
-    if (scrollableElement3) {
-        handleHorizontalScrolling(scrollableElement3,'scrollBtnLeft1', 'scrollBtnRight1');
     }
 };
 
