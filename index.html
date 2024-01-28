@@ -76,7 +76,7 @@
         }
 
 .hedcov{
-    padding-top: 100px; 
+    padding-top: 70px; 
 }
 
 
@@ -389,7 +389,7 @@
 
 
 
-        #map {
+        .map {
             margin-top: 30px;
             height: 150px;
             width: 300px;
@@ -530,7 +530,9 @@
             border-color: white !important;
         }
 
-
+.scroll-btn{
+    border-radius: 50%;
+}
 
 
         .card1 {
@@ -855,6 +857,11 @@
     }
     .carrr3{
                 width: 350px;
+            }
+            .card1{
+                width: 300px;
+                max-height: fit-content;
+                
             }
             
         }
@@ -1211,7 +1218,7 @@
 
 
     <div class=" md6 cover"
-        style="background-image: url('images/2.jpg'); height: 450px; background-repeat: no-repeat;display: flex; flex-direction: column; align-items: center;">
+        style="background-image: url('images/2.jpg'); height: 450px; background-repeat: no-repeat;display: flex; flex-direction: column; align-items: center;  justify-content: center;">
         <h1 class="hedcov" style="color: white; font-weight: bold;">Paris Hotels and Places to Stay </h1>
         <h10 style="color: white; padding-bottom: 20px; font-weight: bold; padding-top: 10px;">Enter dates to find the
             best prices</h10>
@@ -1407,7 +1414,7 @@
                 <div class="md2 col align-self-start">
 
 
-                    <div id="map"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d335987.98709802184!2d2.35!3d48.86!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis%2C%20France!5e0!3m2!1sen!2sge!4v1706458333691!5m2!1sen!2sge" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d335987.98709802184!2d2.35!3d48.86!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis%2C%20France!5e0!3m2!1sen!2sge!4v1706475311487!5m2!1sen!2sge" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
                     <div class="accordion" id="accordionPanelsStayOpenExample">
                         <div class="accordion-item" style="background-color: #F2F2F2;">
@@ -7424,8 +7431,6 @@
 
 
 
-    <script>(g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })
-            ({ key: "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg", v: "weekly" });</script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -7569,18 +7574,7 @@
 
 
 
-        let map;
-
-        async function initMap() {
-            const { Map } = await google.maps.importLibrary("maps");
-
-            map = new Map(document.getElementById("map"), {
-                center: { lat: 48.86, lng: 2.35 },
-                zoom: 10,
-            });
-        }
-
-        initMap();
+        
 
 
 
