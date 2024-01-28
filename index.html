@@ -109,7 +109,21 @@
             border-radius: 50%;
         }
 
+        .carrr3 {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        cursor: grab;
+    }
 
+    .carrr3:active {
+        cursor: grabbing;
+    }
+
+    .imgg {
+        display: inline-block;
+        white-space: nowrap;
+    }
 
         #datepicker1,
         #datepicker2 {
@@ -870,6 +884,11 @@
                 display: none;
             }
         }
+        @media only screen and (min-width:500px){
+            .custom-btn3{
+                margin-left: 55px;
+            }
+        }
 
        
 
@@ -953,7 +972,7 @@
                     <a class="navbar-brand" href="#" style="font-size: 30px;"><img src="images/1.jpg" class="fimg"><strong class="md3">Tripadvisor</strong></a>
                 </div>
 
-                <div class="col-4  md8 col-sm-3">
+                <div class="col-2  md8" style="padding-left: 10px;">
                     <form class="d-flex" role="search">
                         <div class="input-group">
                             <input class="form-control rounded-pill with-icon" type="search" placeholder="Where to?"
@@ -1306,8 +1325,8 @@
                                     <button type="button" class="btn btn-outline-dark custom-btn custom-btn2"
                                         style="margin-left: 10px;">Indigenous Peoples' Day
                                         Weekend</button>
-                                    <button type="button" style="margin-top: 10px; margin-left: 55px;"
-                                        class="btn btn-outline-dark custom-btn custom-btn2">Veteran's Day Weekend</button>
+                                    <button type="button" style="margin-top: 10px;"
+                                        class="btn btn-outline-dark custom-btn custom-btn2 custom-btn3">Veteran's Day Weekend</button>
                                     <button type="button" style="margin-top: 10px;"
                                         class="btn btn-outline-dark custom-btn custom-btn2">Thanksgiving Day</button>
                                 </div>
