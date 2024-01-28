@@ -794,7 +794,7 @@
 
             #datepicker1,
             #datepicker2{
-                width: 100%;
+                width: 100px !important;
 
             }
         
@@ -834,7 +834,7 @@
         display: none !important;
     }
     .cover{
-        height: 200px;
+        height: 300px !important;
     }
     .mmbb{
         display: none;
@@ -843,6 +843,9 @@
         display: none;
         font-size: 21px; 
         font-weight: 800;
+    }
+    .twtw{
+        padding-left: 20px;
     }
             
         }
@@ -6358,7 +6361,7 @@
                             </div>
 
 
-                            <div class="col col-sm-7">
+                            <div class="col col-sm-7 twtw">
                                 <div class="card1 card">
                                     <img src="images/11.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
@@ -6366,7 +6369,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col col-sm-7">
+                            <div class="col col-sm-7 twtw">
                                 <div class="card1 card">
                                     <img src="images/12.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
@@ -6374,7 +6377,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col col-sm-7">
+                            <div class="col col-sm-7 twtw">
                                 <div class="card1 card">
                                     <img src="images/13.jpg" class="card-img-top" alt="...">
                                     <div class="card-body">
@@ -7603,7 +7606,17 @@
 }
 
 window.onload = function () {
-    const scrollableElement = document.querySelector('.carrr3');
+    const scrollableElement1 = document.querySelector('.carrr3');
+    if (scrollableElement) {
+        handleHorizontalScrolling(scrollableElement);
+    }
+
+    const scrollableElement2 = document.querySelector('.carrr1');
+    if (scrollableElement) {
+        handleHorizontalScrolling(scrollableElement);
+    }
+
+    const scrollableElement3 = document.querySelector('.carrr2');
     if (scrollableElement) {
         handleHorizontalScrolling(scrollableElement);
     }
@@ -7612,88 +7625,8 @@ window.onload = function () {
 
 
 
+    
 
-
-
-
-
-
-
-
-
-
-function handleHorizontalScrolling(element) {
-    let isGrabbing = false;
-    let startGrabX, startScrollLeft;
-
-    function handleGrabbing(e) {
-        if (isGrabbing) {
-            const touch = e.touches ? e.touches[0] : e;
-            const touchX = touch.clientX;
-            const scrollDistance = (touchX - startGrabX) * 2; // Adjust the scrolling speed
-            element.scrollLeft = startScrollLeft - scrollDistance;
-        }
-    }
-
-    element.addEventListener('mousedown', e => {
-        isGrabbing = true;
-        startGrabX = e.clientX;
-        startScrollLeft = element.scrollLeft;
-        element.classList.add('active');
-    });
-
-    element.addEventListener('mousemove', handleGrabbing);
-
-    element.addEventListener('mouseup', () => {
-        isGrabbing = false;
-        element.classList.remove('active');
-    });
-
-    element.addEventListener('mouseleave', () => {
-        isGrabbing = false;
-        element.classList.remove('active');
-    });
-
-    element.addEventListener('touchstart', e => {
-        isGrabbing = true;
-        const touch = e.touches[0];
-        startGrabX = touch.clientX;
-        startScrollLeft = element.scrollLeft;
-        element.classList.add('active');
-    });
-
-    element.addEventListener('touchmove', handleGrabbing);
-
-    element.addEventListener('touchend', () => {
-        isGrabbing = false;
-        element.classList.remove('active');
-    });
-
-    // Button scroll logic
-    function scroll(direction) {
-        const scrollAmount = 300; // Adjust the scrolling speed
-        if (direction === 'left') {
-            element.scrollLeft -= scrollAmount;
-        } else {
-            element.scrollLeft += scrollAmount;
-        }
-    }
-
-    document.getElementById('scrollBtnLeft').addEventListener('click', () => {
-        scroll('left');
-    });
-
-    document.getElementById('scrollBtnRight').addEventListener('click', () => {
-        scroll('right');
-    });
-}
-
-window.onload = function () {
-    const scrollableElement = document.querySelector('.carrr1');
-    if (scrollableElement) {
-        handleHorizontalScrolling(scrollableElement);
-    }
-};
 
 
 
