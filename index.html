@@ -834,13 +834,15 @@
         display: none !important;
     }
     .cover{
-        height: 300px;
+        height: 200px;
     }
     .mmbb{
         display: none;
     }
     .mmbb1{
         display: none;
+        font-size: 21px; 
+        font-weight: 800;
     }
             
         }
@@ -6085,11 +6087,11 @@
                                                 <div class="col">
 
                                                     $325
-                                                    LOWEST </div>
+                                                    </div>
                                                 <div class="col">
                                                     41º
                                                     F
-                                                    COLDEST </div>
+                                                    </div>
                                                 <div class="col">
                                                     22
                                                     in
@@ -6147,7 +6149,7 @@
                                                     Mar - May
                                                 </div>
                                                 <div class="col">
-                                                    $280 LOWEST
+                                                    $280
                                                 </div>
                                                 <div class="col">
                                                     54º F
@@ -6210,10 +6212,10 @@
                                                     $408
                                                 </div>
                                                 <div class="col">
-                                                    69º F WARMEST
+                                                    69º F
                                                 </div>
                                                 <div class="col">
-                                                    23 in WETTEST
+                                                    23
                                                 </div>
 
                                             </div>
@@ -6265,10 +6267,10 @@
                                                     Sep - Nov
                                                 </div>
                                                 <div class="col">
-                                                    $424 HIGHEST </div>
+                                                    $424</div>
                                                 <div class="col">
                                                     55º F
-                                                    COLDEST </div>
+                                                     </div>
                                                 <div class="col">
                                                     20 in
                                                 </div>
@@ -7606,6 +7608,101 @@ window.onload = function () {
         handleHorizontalScrolling(scrollableElement);
     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function handleHorizontalScrolling(element) {
+    let isGrabbing = false;
+    let startGrabX, startScrollLeft;
+
+    function handleGrabbing(e) {
+        if (isGrabbing) {
+            const touch = e.touches ? e.touches[0] : e;
+            const touchX = touch.clientX;
+            const scrollDistance = (touchX - startGrabX) * 2; // Adjust the scrolling speed
+            element.scrollLeft = startScrollLeft - scrollDistance;
+        }
+    }
+
+    element.addEventListener('mousedown', e => {
+        isGrabbing = true;
+        startGrabX = e.clientX;
+        startScrollLeft = element.scrollLeft;
+        element.classList.add('active');
+    });
+
+    element.addEventListener('mousemove', handleGrabbing);
+
+    element.addEventListener('mouseup', () => {
+        isGrabbing = false;
+        element.classList.remove('active');
+    });
+
+    element.addEventListener('mouseleave', () => {
+        isGrabbing = false;
+        element.classList.remove('active');
+    });
+
+    element.addEventListener('touchstart', e => {
+        isGrabbing = true;
+        const touch = e.touches[0];
+        startGrabX = touch.clientX;
+        startScrollLeft = element.scrollLeft;
+        element.classList.add('active');
+    });
+
+    element.addEventListener('touchmove', handleGrabbing);
+
+    element.addEventListener('touchend', () => {
+        isGrabbing = false;
+        element.classList.remove('active');
+    });
+
+    // Button scroll logic
+    function scroll(direction) {
+        const scrollAmount = 300; // Adjust the scrolling speed
+        if (direction === 'left') {
+            element.scrollLeft -= scrollAmount;
+        } else {
+            element.scrollLeft += scrollAmount;
+        }
+    }
+
+    document.getElementById('scrollBtnLeft').addEventListener('click', () => {
+        scroll('left');
+    });
+
+    document.getElementById('scrollBtnRight').addEventListener('click', () => {
+        scroll('right');
+    });
+}
+
+window.onload = function () {
+    const scrollableElement = document.querySelector('.carrr1');
+    if (scrollableElement) {
+        handleHorizontalScrolling(scrollableElement);
+    }
+};
+
+
+
+
+
+
+
+
+
 
 
 
