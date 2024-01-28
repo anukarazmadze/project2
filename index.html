@@ -75,7 +75,9 @@
             height: 50px;
         }
 
-
+.hedcov{
+    padding-top: 100px; 
+}
 
 
         /* Override max-width for Flatpickr calendar and adjust width */
@@ -841,12 +843,20 @@
     }
     .mmbb1{
         display: none;
-        font-size: 21px; 
-        font-weight: 800;
+        font-size: 25px; 
+        font-weight: 1000;
     }
     .twtw{
         padding-left: 20px;
     }
+    .hedcov{
+        margin-top: 50px;
+        margin-right: 20px;
+        
+    }
+    .carrr3{
+                width: 350px;
+            }
             
         }
 
@@ -1200,7 +1210,7 @@
 
     <div class=" md6 cover"
         style="background-image: url('images/2.jpg'); height: 450px; background-repeat: no-repeat;display: flex; flex-direction: column; align-items: center;">
-        <h1 style="color: white; padding-top: 100px; font-weight: bold;">Paris Hotels and Places to Stay </h1>
+        <h1 class="hedcov" style="color: white; font-weight: bold;">Paris Hotels and Places to Stay </h1>
         <h10 style="color: white; padding-bottom: 20px; font-weight: bold; padding-top: 10px;">Enter dates to find the
             best prices</h10>
         <!-- Calendar container with flex layout -->
@@ -1817,8 +1827,8 @@
 
                             <div class="butono1" style="display: flex; justify-content: space-between; width: 100%; margin-top: 100px; position: absolute; z-index: 1; padding-bottom: 200px;">
 
-                                <button id="scrollBtnLeft" class="bttnn1 scroll-btn scroll-btn-left" onclick="scrollCards('left', '.carrr3')">←</button>
-                                <button id="scrollBtnRight" class="bttnn1 scroll-btn scroll-btn-right" onclick="scrollCards('right', '.carrr3')">→</button>
+                                <button id="scrollBtnLeft3" class="bttnn1 scroll-btn scroll-btn-left" onclick="scrollCards('left', '.carrr3')">←</button>
+                                <button id="scrollBtnRight3" class="bttnn1 scroll-btn scroll-btn-right" onclick="scrollCards('right', '.carrr3')">→</button>
                             </div>
 
                         </div>
@@ -6158,7 +6168,7 @@
                                                     54º F
                                                 </div>
                                                 <div class="col">
-                                                    19 in DRIEST
+                                                    19 in 
                                                 </div>
 
                                             </div>
@@ -6414,8 +6424,8 @@
                         </div>
                         <div class="butono" style="display: flex; justify-content: space-between; width: 100%; position: absolute; z-index: 1; margin-top: -300px; padding-bottom: 200px;">
 
-                        <button id="scrollBtnLeft" class="bttnn scroll-btn scroll-btn-left" onclick="scrollCards('left', '.carrr1')">←</button>
-                        <button id="scrollBtnRight" class="bttnn scroll-btn scroll-btn-right" onclick="scrollCards('right', '.carrr1')">→</button>
+                        <button id="scrollBtnLeft2" class="bttnn scroll-btn scroll-btn-left" onclick="scrollCards('left', '.carrr1')">←</button>
+                        <button id="scrollBtnRight2" class="bttnn scroll-btn scroll-btn-right" onclick="scrollCards('right', '.carrr1')">→</button>
                     </div>
 
 
@@ -7607,18 +7617,18 @@
 
 window.onload = function () {
     const scrollableElement1 = document.querySelector('.carrr3');
-    if (scrollableElement) {
-        handleHorizontalScrolling(scrollableElement);
+    if (scrollableElement1) {
+        handleHorizontalScrolling(scrollableElement1,'scrollBtnLeft3', 'scrollBtnRight3');
     }
 
     const scrollableElement2 = document.querySelector('.carrr1');
-    if (scrollableElement) {
-        handleHorizontalScrolling(scrollableElement);
+    if (scrollableElement2) {
+        handleHorizontalScrolling(scrollableElement2,'scrollBtnLeft2', 'scrollBtnRight2');
     }
 
     const scrollableElement3 = document.querySelector('.carrr2');
-    if (scrollableElement) {
-        handleHorizontalScrolling(scrollableElement);
+    if (scrollableElement3) {
+        handleHorizontalScrolling(scrollableElement3,'scrollBtnLeft1', 'scrollBtnRight1');
     }
 };
 
