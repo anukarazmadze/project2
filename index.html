@@ -792,11 +792,14 @@
                 font-size: 80%;
             }
             .custom-btn2{
-                width: 50%;
+                width: 20%;
                 font-size: 50%;
             }
             .butono1{
                 display: none;
+            }
+            .bbbi{
+                font-size: 80%;
             }
             
         }
@@ -950,7 +953,7 @@
                     <a class="navbar-brand" href="#" style="font-size: 30px;"><img src="images/1.jpg" class="fimg"><strong class="md3">Tripadvisor</strong></a>
                 </div>
 
-                <div class="col-3  md8 col-sm-2">
+                <div class="col-4  md8 col-sm-3">
                     <form class="d-flex" role="search">
                         <div class="input-group">
                             <input class="form-control rounded-pill with-icon" type="search" placeholder="Where to?"
@@ -1310,8 +1313,8 @@
                                 </div>
                                 <div class="col" style="margin-top: 45px;">
                                     <div class="col-12 small">
-                                        <span class="small">Can't find your desired holiday?</span>
-                                        <i class="bi bi-calendar ml-2 small"></i> Enter dates to view deals
+                                        <span class="small bbbi">Can't find your desired holiday?</span>
+                                        <i class="bi bbbi bi-calendar ml-2 small"></i> Enter dates to view deals
                                     </div>
                                 </div>
                             </div>
@@ -7476,32 +7479,45 @@
 
 
         
-        function scrollCards(direction, containerClass) {
-        const container = $(containerClass);
-        const scrollAmount = 300; // Adjust the scroll amount as needed
+        let touchStartX = 0;
+    let touchEndX = 0;
 
-        if (direction === 'left') {
-            container.animate({
-                scrollLeft: '-=' + scrollAmount
-            }, 500);
-        } else {
-            container.animate({
-                scrollLeft: '+=' + scrollAmount
-            }, 500);
+    document.querySelector('.carrr3').addEventListener('touchstart', function (e) {
+        touchStartX = e.touches[0].clientX;
+    });
+
+    document.querySelector('.carrr3').addEventListener('touchmove', function (e) {
+        touchEndX = e.touches[0].clientX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const sensitivity = 50; // Adjust the sensitivity as needed
+        const deltaX = touchStartX - touchEndX;
+
+        if (Math.abs(deltaX) > sensitivity) {
+            if (deltaX > 0) {
+                scrollCards('left', '.carrr3');
+            } else {
+                scrollCards('right', '.carrr3');
+            }
+
+            // Reset touchStartX and touchEndX
+            touchStartX = 0;
+            touchEndX = 0;
         }
     }
 
-    // Add swipe gesture handling using Hammer.js
-    const swipeContainer = document.querySelector('.carrr3');
-    const hammer = new Hammer(swipeContainer);
+    function scrollCards(direction, containerClass) {
+        const container = document.querySelector(containerClass);
+        const scrollAmount = 300; // Adjust the scroll amount as needed
 
-    hammer.on('swipeleft', function () {
-        scrollCards('left', '.carrr3');
-    });
-
-    hammer.on('swiperight', function () {
-        scrollCards('right', '.carrr3');
-    });
+        if (direction === 'left') {
+            container.scrollLeft -= scrollAmount;
+        } else {
+            container.scrollLeft += scrollAmount;
+        }
+    }
 
 
 
