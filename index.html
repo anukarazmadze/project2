@@ -798,7 +798,9 @@
                 /* Set full width for smaller screens */
             }
 
-
+            .datepicker-container input {
+            width: 100%;
+        }
             #datepicker1,
             #datepicker2{
                 width: 100px !important;
@@ -866,9 +868,7 @@
             body{
                 background-color: #34E0A1;
             }
-            .datepicker-container {
-            width: 100%; /* Set the width as needed for smaller screens */
-        }
+            
             
         }
 
@@ -962,7 +962,7 @@
 
 <body>
 
-    <div class="container  mx-auto " style="height: 45px;">
+    <div class="container  mx-auto " style="height: 45px; background-color: white;">
         <nav class="navbar md4b" style="padding-top: 0;">
             <div class="row justify-content-between align-items-center" style="width: 100%;">
 
@@ -7283,8 +7283,8 @@
 
 
     <div style="background-color: #FAF1ED;">
-        <div class="container" style="padding-top: 20px;">
-            <div class="row">
+        <div class="container">
+            <div class="row"  style="padding-top: 20px;">
 
 
                 <div class="col-12 last1">
@@ -7675,9 +7675,9 @@
 }
 
 window.onload = function () {
-    const scrollableElement1 = document.querySelector('.carrr3');
-    if (scrollableElement1) {
-        handleHorizontalScrolling(scrollableElement1,'scrollBtnLeft3', 'scrollBtnRight3');
+    const scrollableElement = document.querySelector('.carrr3');
+    if (scrollableElement) {
+        handleHorizontalScrolling(scrollableElement,'scrollBtnLeft3', 'scrollBtnRight3');
     }
 };
 
