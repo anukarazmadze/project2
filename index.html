@@ -782,7 +782,9 @@
             .carrr3{
                 width: 400px;
             }
-            
+            .butono1{
+                display: none;
+            }
             
         }
         @media screen and (max-width: 400px) {
@@ -809,9 +811,7 @@
                 width: 20%;
                 font-size: 50%;
             }
-            .butono1{
-                display: none;
-            }
+            
             .bbbi{
                 font-size: 80%;
             }
@@ -1320,7 +1320,7 @@
                                 <button type="button" style="margin-left: 16px;"
                                     class="btn btn-outline-dark custom-btn custom-btn2">Independence Day</button>
                                 <button type="button" class="btn btn-outline-dark custom-btn custom-btn2">Labor Day Weekend</button>
-                                <div class="col" style="margin-top: 20px;">
+                                <div class="col-md" style="margin-top: 20px;">
                                     <span style="margin-left: -16px;">Oct-Dec</span>
                                     <button type="button" class="btn btn-outline-dark custom-btn custom-btn2"
                                         style="margin-left: 10px;">Indigenous Peoples' Day
@@ -7498,45 +7498,79 @@
 
 
         
-        let touchStartX = 0;
-    let touchEndX = 0;
+        function handleHorizontalScrolling(element) {
+    let isGrabbing = false;
+    let startGrabX, startScrollLeft;
 
-    document.querySelector('.carrr3').addEventListener('touchstart', function (e) {
-        touchStartX = e.touches[0].clientX;
-    });
-
-    document.querySelector('.carrr3').addEventListener('touchmove', function (e) {
-        touchEndX = e.touches[0].clientX;
-        handleSwipe();
-    });
-
-    function handleSwipe() {
-        const sensitivity = 50; // Adjust the sensitivity as needed
-        const deltaX = touchStartX - touchEndX;
-
-        if (Math.abs(deltaX) > sensitivity) {
-            if (deltaX > 0) {
-                scrollCards('left', '.carrr3');
-            } else {
-                scrollCards('right', '.carrr3');
-            }
-
-            // Reset touchStartX and touchEndX
-            touchStartX = 0;
-            touchEndX = 0;
+    function handleGrabbing(e) {
+        if (isGrabbing) {
+            const touch = e.touches ? e.touches[0] : e;
+            const touchX = touch.clientX;
+            const scrollDistance = (touchX - startGrabX) * 2; // Adjust the scrolling speed
+            element.scrollLeft = startScrollLeft - scrollDistance;
         }
     }
 
-    function scrollCards(direction, containerClass) {
-        const container = document.querySelector(containerClass);
-        const scrollAmount = 300; // Adjust the scroll amount as needed
+    element.addEventListener('mousedown', e => {
+        isGrabbing = true;
+        startGrabX = e.clientX;
+        startScrollLeft = element.scrollLeft;
+        element.classList.add('active');
+    });
 
+    element.addEventListener('mousemove', handleGrabbing);
+
+    element.addEventListener('mouseup', () => {
+        isGrabbing = false;
+        element.classList.remove('active');
+    });
+
+    element.addEventListener('mouseleave', () => {
+        isGrabbing = false;
+        element.classList.remove('active');
+    });
+
+    element.addEventListener('touchstart', e => {
+        isGrabbing = true;
+        const touch = e.touches[0];
+        startGrabX = touch.clientX;
+        startScrollLeft = element.scrollLeft;
+        element.classList.add('active');
+    });
+
+    element.addEventListener('touchmove', handleGrabbing);
+
+    element.addEventListener('touchend', () => {
+        isGrabbing = false;
+        element.classList.remove('active');
+    });
+
+    // Button scroll logic
+    function scroll(direction) {
+        const scrollAmount = 300; // Adjust the scrolling speed
         if (direction === 'left') {
-            container.scrollLeft -= scrollAmount;
+            element.scrollLeft -= scrollAmount;
         } else {
-            container.scrollLeft += scrollAmount;
+            element.scrollLeft += scrollAmount;
         }
     }
+
+    document.getElementById('scrollBtnLeft').addEventListener('click', () => {
+        scroll('left');
+    });
+
+    document.getElementById('scrollBtnRight').addEventListener('click', () => {
+        scroll('right');
+    });
+}
+
+window.onload = function () {
+    const scrollableElement = document.querySelector('.carrr3');
+    if (scrollableElement) {
+        handleHorizontalScrolling(scrollableElement);
+    }
+};
+
 
 
 
