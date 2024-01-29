@@ -771,6 +771,20 @@
     /* Other styles for the dropdown content */
 } 
 
+
+.flatpickr-calendar {
+            width: 400px !important;
+            height: 500px;
+        }
+
+        .flatpickr-innerContainer {
+            padding-bottom: 0px;
+            /* Adjust this value as needed */
+
+        }
+
+     
+        
         }
         @media screen and (max-width: 770px) {
             .carucaru{
@@ -817,7 +831,7 @@
                 width: 70px;
                 /* Set full width for smaller screens */
                 font-size: 9px;
-                height: 30px;
+                height: 35px;
             }
             .datepicker-cont {
             width: 100px; /* Adjust the width as needed */
@@ -828,9 +842,7 @@
             color: black;
 
           }  
-           .bi-calendar{
-            display: none;
-           } 
+           
            
             .md8 {
                 width: 200px;
@@ -7487,40 +7499,63 @@
 
 
         document.addEventListener('DOMContentLoaded', function () {
-            flatpickr("#datepicker1", {
-                dateFormat: "m/d/Y",
-                defaultDate: null, // Set defaultDate to null
-                minDate: "today",
-                onClose: function () {
-                    document.getElementById("datepicker1-overlay").style.display = "none";
-                },
-                showMonths: 2,
-                onChange: function (selectedDates, dateStr, instance) {
-                    // Additional actions on date change if needed
-                }
-            });
+    // Function to check screen width and update showMonths accordingly
+    function updateShowMonths() {
+        const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-            flatpickr("#datepicker2", {
-                dateFormat: "m/d/Y",
-                defaultDate: null, // Set defaultDate to null
-                minDate: "today",
-                onClose: function () {
-                    document.getElementById("datepicker2-overlay").style.display = "none";
-                },
-                showMonths: 2,
-                onChange: function (selectedDates, dateStr, instance) {
-                    // Additional actions on date change if needed
-                }
-            });
+        if (screenWidth <= 800) {
+            return 1; // Display one month on screens 800px or less
+        } else {
+            return 2; // Display two months on larger screens
+        }
+    }
 
-            document.getElementById('datepicker1').addEventListener('focus', function () {
-                document.getElementById("datepicker1-overlay").style.display = "block";
-            });
+    // Initialize Flatpickr with dynamic showMonths
+    flatpickr("#datepicker1", {
+        dateFormat: "m/d/Y",
+        defaultDate: null,
+        minDate: "today",
+        onClose: function () {
+            document.getElementById("datepicker1-overlay").style.display = "none";
+        },
+        showMonths: updateShowMonths(), // Set initial showMonths value
+        onChange: function (selectedDates, dateStr, instance) {
+            // Additional actions on date change if needed
+        }
+    });
 
-            document.getElementById('datepicker2').addEventListener('focus', function () {
-                document.getElementById("datepicker2-overlay").style.display = "block";
-            });
-        });
+    flatpickr("#datepicker2", {
+        dateFormat: "m/d/Y",
+        defaultDate: null,
+        minDate: "today",
+        onClose: function () {
+            document.getElementById("datepicker2-overlay").style.display = "none";
+        },
+        showMonths: updateShowMonths(), // Set initial showMonths value
+        onChange: function (selectedDates, dateStr, instance) {
+            // Additional actions on date change if needed
+        }
+    });
+
+    document.getElementById('datepicker1').addEventListener('focus', function () {
+        document.getElementById("datepicker1-overlay").style.display = "block";
+    });
+
+    document.getElementById('datepicker2').addEventListener('focus', function () {
+        document.getElementById("datepicker2-overlay").style.display = "block";
+    });
+
+    // Update showMonths on window resize
+    window.addEventListener('resize', function () {
+        const showMonthsValue = updateShowMonths();
+
+        // Set the updated showMonths value for both date pickers
+        document.querySelector('#datepicker1')._flatpickr.set('showMonths', showMonthsValue);
+        document.querySelector('#datepicker2')._flatpickr.set('showMonths', showMonthsValue);
+    });
+});
+
+
 
 
 
